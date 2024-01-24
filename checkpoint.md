@@ -26,7 +26,8 @@ la précédente. Je me renseignerai là-desssus). Le client ne reçoit pas la pr
 a une plage d'exclusion (voir capture).
 
 (voir captures d'écran) 
-
+![ping nommé client -> serveur](pingNomClient.png)
+![ping nommé serveur -> client](NomServeur.png)
 Q.1.4 Est-ce que ce client peut avoir l'adresse IP 172.16.10.15 en DHCP ?
 Cette adresse est dans une zone d'exclusion, donc non a priori. Si on veut vraiment le faire, ce qui risque par exemple de 
 priver un serveur de son adresse IP, si c'est la raison d'être de la zone d'exclusion, on peut procéder ainsi :
