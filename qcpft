@@ -1,0 +1,301 @@
+
+6
+Yves Lambert
+Logo Wild Code School
+ASRC : Checkpoint 2
+Checkpoint TSSR
+1 formateur
+ASRC : Checkpoint 2
+
+image
+
+Comme pour le premier checkpoint, celui-ci est un point d'étape. Il a pour principal objectif de te permettre de vérifier si tu as bien assimilé les compétences vues jusqu'à présent.
+Il n'y a pas de surprises, les notions abordées sont celles vues dans les semaines qui viennent de s'écouler.
+C'est un exercice individuel, Mais tu as bien sûr le droit de te référer aux quêtes que tu as déjà effectuées et à la documentation (Internet).
+Tu devrais être en mesure de le finir dans le temps imparti. Plus tu as des automatismes, plus tu iras vite. Mais comme dans la vraie vie, on ne connait pas tout par cœur.
+Néanmoins, il ne s'agit pas d'un examen. Si tu n'as pas fini au bout de la durée impartie, ne t'inquiète pas, tu es fortement invité à retravailler le checkpoint par la suite afin de réussir à valider les compétences. L'essentiel est que tu comprennes et sois capable de mettre en application les notions abordées, si tu n'as pas encore la rapidité, cela viendra en t'exerçant.
+Ton formateur va t'aider dans cette évaluation en examinant le travail que as fourni et en validant la quête le cas échéant.
+Si tu n'as pas tout fini dans les délais, tu ajouteras simplement un commentaire # Effectué en dehors du timing, pour l'indiquer à ton formateur. Ça lui permettra de bien comprendre les forces et faiblesses de chacun, et de s'adapter.
+📝 Objectifs
+
+✅ Réaliser les 3 exercices du challenge
+✅ Valider les compétences acquises durant ces dernières semaines de formations
+
+Sommaire
+
+    🤓 Contexte de ce checkpoint
+    💻 Outils mis à disposition
+    💪 Challenge
+        Exercice 1 : Modification IP client serveur (temps estimé : 45 min)
+            a. Contexte
+            b. Pratique
+        Exercice 2 : Débogage de script PowerShell (temps estimé : 1h30)
+            a. Contexte
+            b. Pratique
+        Exercice 3 : Vérification d'une infrastructure réseau (temps estimé : 1h45 min)
+            a. Contexte
+            b. Découverte du réseau
+            c. Etude théorique
+            d. Analyse de trames
+    🧐 Critères d'acceptation
+
+🤓 Contexte de ce checkpoint
+
+Tu travailles dans le service SI de la société SweetCakes.
+Tu dois reprendre le travail de l'un de tes collègues absent.
+L'exercice 2 et à faire après le 1. L'exercice 3 peut être fait n'importe quand.
+💻 Outils mis à disposition
+
+Tu as 2 VM que tu trouveras ici.
+Il faut les importer dans Virtualbox.
+
+Voici leurs caractéristiques :
+
+PC Serveur :
+
+    Nom de la VM dans VirtualBox : Checkpoint2-SRVWIN2022
+    Nom : WINSERV
+    OS : Windows Server 2022
+    RAM : 8 Go
+    Processeurs : 2
+    Compte d'administration : Administrator / P@ssw0rdAdmin$!2023
+    Rôles installés : DHCP, DNS
+    Adresse IP : 172.16.10.10 /24
+
+PC Client :
+
+    Nom de la VM dans VirtualBox : Checkpoint2-CLIWIN10
+    Nom : CLIENT1
+    OS : Windows 10
+    RAM : 4 Go
+    Processeurs : 2
+    Compte d'administration : Administrateur / P@ssw0rdAdminC!2023
+    Compte utilisateur : Wilder / P@ssw0rdUserC!2023
+    Adresse IP : 172.16.100.50/24
+
+💪 Challenge
+Exercice 1 : Modification IP client serveur (temps estimé : 45 min)
+a. Contexte
+
+Tu as 2 ordinateurs, un client et un serveur qui ne communiquent pas.
+Le but est de faire communiquer les 2 machines entre elle.
+b. Pratique
+
+Démarre les 2 VM.
+Fais les actions demandées et réponds aux questions. Lorsque cela est demandé, inclus une ou plusieurs copies d'écran.
+
+Les questions se suivent et doivent être faites dans l'ordre
+
+Q.1.1 Pourquoi le ping avec les adresses IP des machines ne fonctionnent pas ?
+Modifie la configuration sur le client pour que cela soit possible.
+Explique ce que tu as fait et montre le par des copies d'écran.
+On doit avoir la copie d'écran d'un ping fonctionnel.
+
+Pour cette question, les VM doivent rester en IP statiques, elles ne doivent pas être en DHCP.
+
+Q.1.2 Le ping avec le nom des machines ne fonctionne pas.
+Modifie la configuration sur le client et/ou le serveur pour que cela soit possible et qu'un ping entre les 2 machines fonctionne avec le nom.
+Explique ce que tu as fait et montre le par des copies d'écran.
+On doit avoir la copie d'écran d'un ping fonctionnel.
+
+Q.1.3 Modifie la configuration réseau du client pour qu'il soit en DHCP.
+Vérifie le paramétrage DHCP sur le serveur et compare le avec l'adresse IP du client.
+Explique pourquoi le client ne récupère pas la 1ère adresse disponible sur la plage DHCP du serveur ?
+Fais une copie d'écran montrant l'adresse IP prise par le client.
+
+Q.1.4 Est-ce que ce client peut avoir l'adresse IP 172.16.10.15 en DHCP ?
+Si oui fais les manipulations nécessaires.
+Explique ce que tu as fait et montre par une copie d'écran le résultat de la commande ipconfig /all sur le client.
+Exercice 2 : Débogage de script PowerShell (temps estimé : 1h30)
+a. Contexte
+
+Le service des Ressources Humaines a demandé au SI un processus automatisé pour la création des utilisateurs locaux sur les ordinateurs à partir d'une liste extraite du logiciel RH.
+
+Ce processus utilise 2 scripts. Voici son fonctionnement :
+
+    On se connecte avec un compte local sur un ordinateur client
+    On exécute le script Main.ps1.
+    Ce script lance avec des privilèges élevés le script AddLocalUsers.ps1
+    Ce dernier va lire une liste d'utilisateurs contenue dans le fichier Users.csv
+    Chaque utilisateur du fichier est testé pour savoir s'il existe déjà sur la machine locale.
+    Si c'est le cas, le script ne fait rien, sinon il le créer et le met dans le groupe local des utilisateurs de la machine.
+
+Malheureusement, ce script dysfonctionne !
+A partir des remarques ci-dessous, remontées par les premiers utilisateurs, corrige le script.
+b. Pratique
+
+Copie les fichiers du dossier c:\Scripts du serveur vers le dossier c:\Scripts du client.
+
+Si tes 2 machines ne communiquent pas, tu as dans le dossier c:\Scripts du client un fichier zip chiffré qui contient les fichiers nécessaires.
+Demande à ton formateur le mot de passe de ce fichier.
+
+Tu as donc maintenant sur le client, dans le dossier C:\Scripts les fichiers suivant :
+
+    AddLocalUsers.ps1
+    Main.ps1
+    Users.csv
+
+Corrections à effectuer sur le script Main.ps1 :
+
+Q.2.1 Lorsque l'on exécute le script il y a une erreur et le script AddLocalUsers.ps1 ne s’exécute pas.
+Corrige ce script pour que le script AddLocalUsers.ps1 s'éxecute.
+
+Corrections à effectuer sur le script AddLocalUsers.ps1 :
+
+Si tu 'arrives pas à executer le script AddLocalUsers.ps1 à partir du script Main.ps1 tu peux le lancer de cette façon :
+
+    Ouvre une fenêtre PowerShell en mode Administrateur
+    Ouvre le script AddLocalUsers.ps1 dans cette fenêtre
+
+Q.2.2 Le premier utilisateur du fichier Users.csv n'est jamais pris en compte. Modifie le script pour que cela soit le cas.
+
+Q.2.3 Le champs Descriptionest importé du fichier mais non-utilisé. Modifie le code pour que ce champs soit utilisé dans la création des utilisateurs.
+
+Q.2.4 Dans l'importation des utilisateurs du fichier CSV, tous les champs sont pris. Or il n'y en a qu'une partie qui est utilisé par la suite. Corrige pour qu'il n'y ait que les champs utilisés pour la création des utilisateurs qui soient importés du fichier CSV.
+
+Q.2.5 Le mot de passe crée n'est pas affiché, donc on ne le connait pas. Affiche le avec le message indiquant qu'un compte est crée.
+
+Q.2.6 Une fonction de création de log, nommée Log existe. Utilise là pour journaliser l'activité du script et les actions importantes du script.
+
+Q.2.7 Si l'utilisateur à créer existe déjà, il n'est pas crée. Or cette information n'est pas affichée, donc on ne le sait pas. Modifie le code pour que cela s'affiche.
+
+Q.2.8 L'ajout des utilisateurs dans le groupe des utilisateurs locaux ne fonctionne pas. Corrige le script pour que cela fonctionne.
+
+Q.2.9 Plusieurs fois dans le code du scrip, la chaine "$Prenom.$Nom" est utilisée. Remplace cette chaîne par une variable $Name que tu initialise correctement.
+
+Q.2.10 Les comptes utilisateurs créer ont un mot de passe qui expire. Corrige cela pour qu'il n'expire pas.
+
+Q.2.11 Modifie le code pour que le mot de passe soit constitué de 10 caractères au lieu de 6.
+Exercice 3 : Vérification d'une infrastructure réseau (temps estimé : 1h45 min)
+a. Contexte
+
+Vérifier que les configurations réseaux des matériel sont correcte.
+Pour cela, suivre et répondre aux questions.
+b. Découverte du réseau
+
+Voici le schéma du réseau :
+
+schéma d'un réseau avec 5 PC 1 switch et 2 routeurs
+
+Informations sur les ordinateurs :
+Matériel	Adresse MAC	Adresse IP
+PC1	00:50:79:66:68:00	10.10.4.1/16
+PC2	00:50:79:66:68:A1	10.11.80.2/16
+PC3	00:50:79:66:66:F3	10.10.80.3/16
+PC4	00:50:79:66:68:03	10.10.4.2/16
+PC5	00:50:79:66:68:12	10.10.4.7/15
+
+Lorsque cela est possible, les ordinateurs ont l'adresse 10.10.255.254 déclarée en adresse IP de passerelle par défaut.
+
+Informations sur les materiels B et R2 :
+Matériel	Interface	Adresse MAC	Adresse IP
+B	f0/0	CA:01:DA:D2:00:08	10.10.255.254/16
+B	g1/0	CA:01:DA:D2:00:1C	10.12.2.254/24
+R2	g2/0	CA:03:9E:EF:00:38	10.12.2.253/24
+R2	g3/0	CA:03:9E:EF:00:54	10.10.4.2/16
+
+Dans ce réseau :
+
+    Tous les matériels sont allumés
+    Toutes les adresses IP sont configurée
+    Toutes les routes IP sont configurée
+
+Q.3.1 Quel est le matériel réseau A ?
+Quel est son rôle sur ce schéma vis-à-vis des ordinateurs ?
+
+Q.3.2 Quel est le matériel réseau B ?
+Quel est son rôle pour le réseau 10.10.0.0/16 ?
+
+Q.3.3 Que signifie f0/0 et g1/0 sur l’élément B ?
+
+Q.3.4 Pour l'ordinateur PC2, que représente /16 dans son adresse IP ?
+
+Q.3.5 Pour ce même ordinateur, que représente l'adresse 10.10.255.254 ?
+c. Etude théorique
+
+Q.3.6 Pour les ordinateur PC1, PC2, et PC5 donne :
+
+    L'adresse de réseau
+    La première adresse disponible
+    La dernière adresse disponible
+    L'adresse de diffusion
+
+Q.3.7 En t'aidant des informations que tu as fourni à la question 3.6, et à l'aide de tes connaissances, indique parmi tous les ordinateurs du schéma, lesquels vont pouvoir communiquer entre-eux.
+
+Q.3.8 De même, indique ceux qui vont pouvoir atteindre le réseau 172.16.5.0/24.
+
+Q.3.9 Quel incidence y-a-t'il pour les ordinateurs PC2 et PC3 si on interverti leur ports de connexion sur le matériel A ?
+
+Q.3.10 On souhaite mettre la configuration IP des ordinateurs en dynamique. Quelles sont les modifications possible ?
+d. Analyse de trames
+
+On a fait un enregistrement des trames entre certains ordinateurs du réseau.
+Récupère les fichiers ci-dessous et ouvre les dans Wireshark.
+
+    Fichier 1 : TSSRCheckpoint2_Capture1.pcap
+    Fichier 2 : TSSRCheckpoint2_Capture2.pcap
+    Fichier 3 : TSSRCheckpoint2_Capture3.pcap
+
+Les 3 fichiers sont indépendants et peuvent être traité dans n'importe quel ordre.
+
+Fichier 1 :
+
+Q.3.11 Sur le paquet N°5, quelle est l'adresse mac du matériel qui initialise la communication ? Déduis-en le nom du matériel.
+
+Q.3.12 Est-ce que la communication enregistrée dans cette capture a réussi ? Si oui, indique entre quels matériel, si non indique pourquoi cela n'a pas fonctionné.
+
+Q.3.13 Dans cette capture, à quel matériel correspond le request et le reply ? Donne le nom, l'adresse IP, et l'adresse mac de chaque materiel.
+
+Q.3.14 Dans le paquet N°2, quel est le protocole encapsulé ? Quel est son rôle ?
+
+Q.3.15 Quels ont été les rôles des matériels A et B dans cette communication ?
+
+Fichier 2 :
+
+Q.3.16 Dans cette trame, qui initialise la communication ? Donne l'adresse IP ainsi que le nom du matériel.
+
+Q.3.17 Quel est le protocole encapsulé ? Quel est son rôle ?
+
+Q.3.18 Est-ce que cette communication a réussi ? Si oui, indique entre quels matériel, si non indique pourquoi cela n'a pas fonctionné.
+
+Q.3.19 Explique la ligne du paquet N° 2
+
+Q.3.20 Quels ont été les rôles des matériels A et B ?
+
+Fichier 3 :
+
+Q.3.21 Dans cette trame, donne les noms et les adresses IP des matériels sources et destination.
+
+Q.3.22 Quelles sont les adresses mac source et destination ? Qu'en déduis-tu ?
+
+Q.3.23 A quel emplacement du réseau a été enregistré cette communication ?
+🧐 Critères d'acceptation
+
+Les 3 fichiers ci-dessous seront remis dans un lien git.
+
+    Exercice 1 : fichier markdown Checkpoint2_Exercice1.md
+    Ce fichier rédigé sous format markdown contient l'ensemble des réponses aux questions, ainsi que les copies d'écran.
+
+    Exercice 2 : fichier de script PowerShell Checkpoint2_Exercice2.ps1
+    Ce fichier contient le code du script corrigé.
+
+    Exercice 3 : fichier markdown Checkpoint2_Exercice3.md
+    Ce fichier rédigé sous format markdown contient l'ensemble des réponses aux questions.
+
+Lien vers la solution : *
+​
+Aide-nous à nous améliorer en nous disant ce que tu as pensé de cette quête : *
+0.5 Stars
+1 Star
+1.5 Stars
+2 Stars
+2.5 Stars
+3 Stars
+3.5 Stars
+4 Stars
+4.5 Stars
+5 Stars
+Empty
+Laisse-nous un commentaire sur cette quête :
+​
+
