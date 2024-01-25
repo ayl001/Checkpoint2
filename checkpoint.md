@@ -119,11 +119,11 @@ Il s'agit de l'adresse de sa passerelle par défaut
 
 ## Q.3.6 Pour les ordinateur PC1, PC2, et PC5 donne :
 
-   | machine | L'adresse de réseau | La première adresse disponible | La dernière adresse disponible | L'adresse de diffusion |
+   |:-: machine | L'adresse de réseau | La première adresse disponible | La dernière adresse disponible | L'adresse de diffusion |
    |---------|---------------------|-----------------------------------------------------------------|------------------------|   
-   | PC1     | 10.10.0.0/16        | 10.10.0.1                      | 10.10.255.254                  | 10.10.255.255          |
-   | PC2     | 10.11.0.0/16        | 10.11.0.1                      | 10.11.255.254                  | 10.11.255.255          |
-   | PC5     | 10.10.4.0/15        | 10.10.4.0.1                    | 10.10.255.126                    | 10.10.254.127            |
+   |:-: PC1     | 10.10.0.0/16        | 10.10.0.1                      | 10.10.255.254                  | 10.10.255.255          |
+   |:-: PC2     | 10.11.0.0/16        | 10.11.0.1                      | 10.11.255.254                  | 10.11.255.255          |
+   |:-: PC5     | 10.10.4.0/15        | 10.10.4.0.1                    | 10.10.255.126                    | 10.10.254.127            |
 |--------------------------------------------------------------------------------------------------------------------------|
 Le réseau de PC5 est inclus dans celui de PC1, il y aura un problème si PC5 envoie un message de diffusion, il ne pourra donc pas découvrir les autres
 
