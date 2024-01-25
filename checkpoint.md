@@ -154,6 +154,28 @@ Je ne me souviens plus, mais il s'agit d'une annonce. Cela permet à PC4 de se f
 ## Q.3.15 Quels ont été les rôles des matériels A et B dans cette communication ?
 A transmet les requêtes de PC1 vers PC4 et les réponse de PC4 à PC1 sans les altérer. B ne joue aucun rôle dans cet échange, juste le routeur B ne répond pas à la sollicitation.
 
-# Q.3.16 Dans cette trame, qui initialise la communication ? 
-C'est 10.10.80.3 qui initie. Son adresse MAC n'est pas citée dans l'énoncé mais 00:50:79:66:68:02 qui ne désigne aucune interface citée dans l'énoncé . L'équipement et sur le réseau IP de PC1, PC3 et PC4
+## Q.3.16 Dans cette trame, qui initialise la communication ? 
+C'est 10.10.80.3 qui initie. Son adresse MAC n'est pas citée dans l'énoncé mais 00:50:79:66:68:02 qui ne désigne aucune interface citée dans l'énoncé . L'équipement et sur le réseau IP de PC1, PC3 et PC4.
+
+## Q.3.17 Quel est le protocole encapsulé ? Quel est son rôle ?
+Le protocole encapsulé est ICMP echo. Il; sert à vérifier si une machine est sur le réseau, ateignable et si elle est en vie. Ceci dit, si une machine ne répond pas cela ne signifie pas nécessairement qu'elle est éteinte ou hors ligne.Par contre la réponse reçu est caractérisique d'un problème réseau.
+
+## Q.3.18 Est-ce que cette communication a réussi ?
+La communication a échoué. Le récipient n'a pas une bonne configuration réseau. Il s'agit de 10.11.80.2 soit PC2 dont l'adresse IP est hors de l'intervale
+
+## Q.3.19 Explique la ligne du paquet N° 2
+Il s'agit de la réponse de la passerelle au ping, pour indiquer que l'IP est inateignable.
+
+## Q.3.20 Quels ont été les rôles des matériels A et B ?
+A a transmis les trames ethernet de façon agnostique, B a examiné l'adresse de destination pour décréter que l'hôte était inateignable.
+
+## Q.3.21 Dans cette trame, donne les noms et les adresses IP des matériels sources et destination.
+- Source : 10.10.4.2 soit PC4
+- Destination 172.16.5.253 soit une machine du réseau  172.16.5.0/24
+
+## Q.3.22 Quelles sont les adresses mac source et destination ? Qu'en déduis-tu ?
+Les matériels réseau proviennent du même fabricant. Les numéros de série ne se suivent pas. Comme il s'agit d'une communication inter-réseaux, on peut supposer qu'il s'agit des @MAC des passerelles.
+
+## Q.3.23 A quel emplacement du réseau a été enregistré cette communication ? 
+La communication a été enregistrée en B ou entre B et R2
 
