@@ -48,7 +48,7 @@ question, donc je ne l'emploierai pas. Je choisis la deuxième méthode :
 
 ## Q.2.1 Lorsque l'on exécute le script il y a une erreur et le script AddLocalUsers.ps1 ne s’exécute pas.
 Corrige ce script pour que le script AddLocalUsers.ps1 s'éxecute.
-Il faut corriger le path de la commande appelée : il faut remplacer "Temp" par "Sript", ainsi main.ps1 lancera AddLocalUser.ps1
+Il faut corriger le path de la commande appelée : il faut remplacer "Temp" par "Script", ainsi main.ps1 lancera AddLocalUser.ps1
 
 ## Q.2.2 Le premier utilisateur du fichier Users.csv n'est jamais pris en compte. Modifie le script pour que cela soit le cas.
 
