@@ -119,12 +119,13 @@ Il s'agit de l'adresse de sa passerelle par défaut
 
 ## Q.3.6 Pour les ordinateur PC1, PC2, et PC5 donne :
 
-   |:-: machine | L'adresse de réseau | La première adresse disponible | La dernière adresse disponible | L'adresse de diffusion |
+   |--------------------------------------------------------------------------------------------------------------------------|
+   | machine | L'adresse de réseau | La première adresse disponible | La dernière adresse disponible | L'adresse de diffusion |
    |---------|---------------------|-----------------------------------------------------------------|------------------------|   
-   |:-: PC1     | 10.10.0.0/16        | 10.10.0.1                      | 10.10.255.254                  | 10.10.255.255          |
-   |:-: PC2     | 10.11.0.0/16        | 10.11.0.1                      | 10.11.255.254                  | 10.11.255.255          |
-   |:-: PC5     | 10.10.4.0/15        | 10.10.4.0.1                    | 10.10.255.126                    | 10.10.254.127            |
-|--------------------------------------------------------------------------------------------------------------------------|
+   | PC1     | 10.10.0.0/16        | 10.10.0.1                      | 10.10.255.254                  | 10.10.255.255          |
+   | PC2     | 10.11.0.0/16        | 10.11.0.1                      | 10.11.255.254                  | 10.11.255.255          |
+   | PC5     | 10.10.4.0/15        | 10.10.4.0.1                    | 10.10.255.126                  | 10.10.254.127          |
+   |--------------------------------------------------------------------------------------------------------------------------|
 Le réseau de PC5 est inclus dans celui de PC1, il y aura un problème si PC5 envoie un message de diffusion, il ne pourra donc pas découvrir les autres
 
 ## Q.3.7
@@ -137,9 +138,22 @@ Les mêmes qu'à la question orécédente pourrons communiquer avec le réseau 1
 Il ne se passera rien de spécial, les switchs sont agnostiques
 
 ## Q.3.10 On souhaite mettre la configuration IP des ordinateurs en dynamique. Quelles sont les modifications possible ?
-La mise en œuvre de serveurs DHCP avec des plages cohérentes permettra de faire que toutes les machines puissent communiquer entre elles
+La mise en œuvre de serveurs DHCP avec des plages cohérentes permettra de faire que toutes les machines puissent communiquer entre elles. Il faut mettre en place un serveur DHCP et le configurer en fonction de la topologie souhaitée pour le(s) réseau(x)
 
 ## Q.3.11 
 C'est 10.10.4.1 qui initie,c'est donc PC1
 
+## Q.3.12 Est-ce que la communication enregistrée dans cette capture a réussi ?
+La communication a réussi, il s'agit d'un ping (ICMP echo) entre PC1 et PC4, aucune trame n'est perdue, la communication s'est bien déroulée.
 
+## Q.3.13 Dans cette capture, à quel matériel correspond le request et le reply 
+Le ***request*** est le fait de PC1 (IP 10.10.4.1/16, MAC 00:50:79:66:68:00)
+le ***reply*** est le fait de PC4 (IP 10.10.4.2/16, MAC 00:50:79:66:68:03)
+
+## Q.3.14 Dans le paquet N°2, quel est le protocole encapsulé ?
+Je ne me souviens plus, mais il s'agit d'une annonce. Cela permet à PC4 de se faire connaitre de PC1
+
+## Q.3.15 Quels ont été les rôles des matériels A et B dans cette communication ?
+A transmet les requêtes de PC1 vers PC4 et les réponse de PC4 à PC1 sans les altérer. B ne joue aucun rôle dans cet échange.
+
+# Q.3.16 Dans cette trame, qui initialise la communication ? 
