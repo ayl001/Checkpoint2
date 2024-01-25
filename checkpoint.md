@@ -99,11 +99,10 @@ Il faut remplacer $length = 6 par $length = 10
 
 # Troisième exercice
 
-# Q.3.1 Quel est le matériel réseau A ?
+## Q.3.1 Quel est le matériel réseau A ?
 Si on se fie à son symbole et à sa position dans le réseau, il s'agit d'un switch qui lie les différents nœuds du réseau
 
-## Q.3.4 Pour Q.3.4 Pour l'ordinateur PC2, que représente /16 dans son adresse IP ?l'ordinateur PC2, que représente /16 dans son adresse IP ?
-# Q.3.2  Quel est le matériel réseau B
+## Q.3.2  Quel est le matériel réseau B
 
 D'après son symbole et sa position dans le réseau, il s'agit d'un routeur il sert de passerelle entre les réseaux 10.10.0.0/16 et 10.12.2.0/24
 
@@ -115,13 +114,32 @@ Il s'agit des interfaces du routeur: f0/0 signifie qu'il s'agit de la première 
 ## Q.3.4 Pour l'ordinateur PC2, que représente /16 dans son adresse IP ?
 /16 représente le réseau, sa taille etc. en fait la taille est 2^16 soit 65536, soit effectivment la possibilité d'adresser 65534 adesse (on ôte l'adresse du réseau et son adresse de diffusion.
 
-# Q.3.5 Pour ce même ordinateur, que représente l'adresse 10.10.255.254 ?
+## Q.3.5 Pour ce même ordinateur, que représente l'adresse 10.10.255.254 ?
 Il s'agit de l'adresse de sa passerelle par défaut
 
-# Q.3.6 Pour les ordinateur PC1, PC2, et PC5 donne :
+## Q.3.6 Pour les ordinateur PC1, PC2, et PC5 donne :
 
-   | machine | L'adresse de réseau | La première adresse disponible | La dernière adresse disponible | L'adresse de diffusion |
-   | PC1 | 10.10.0.0/16 | 10.10.0.1 | 10.10.255.254 | 10.10.255.255 |
-   | PC2 | 10.11.0.0/16 | 10.11.0.1 | 10.11.255.254 | 10.11.255.255 |
-   | PC5 |  |  |  |  | 
+| machine | L'adresse de réseau | La première adresse disponible | La dernière adresse disponible | L'adresse de diffusion |
+|---------|---------------------|-----------------------------------------------------------------|------------------------|   
+| PC1     | 10.10.0.0/16        | 10.10.0.1                      | 10.10.255.254                  | 10.10.255.255          |
+| PC2     | 10.11.0.0/16        | 10.11.0.1                      | 10.11.255.254                  | 10.11.255.255          |
+| PC5     | 10.10.4.0/15        | 10.10.4.0.1                    | 10.10.4.126                    | 10.10.4.127            |
+|--------------------------------------------------------------------------------------------------------------------------|
+Le réseau de PC5 est inclus dans celui de PC1, il y aura un problème si PC5 envoie un message de diffusion, il ne pourra donc pas découvrir les autres
+
+## Q.3.7
+les PC 1,3 et 4 pourront communiquer ensemble. Pour le 5 j'ai un doute et je n'ai pas suffisamment de connaissance pour statuer Cf précédente question.
+
+## Q.3.8
+Les mêmes qu'à la question orécédente pourrons communiquer avec le réseau 172.x.x.X étant donné qu'ils ont la bonne passerelle
+
+## Q.3.9 Quel incidence y-a-t'il pour les ordinateurs PC2 et PC3 si on interverti leur ports de connexion sur le matériel A ?
+Il ne se passera rien de spécial, les switchs sont agnostiques
+
+## Q.3.10 On souhaite mettre la configuration IP des ordinateurs en dynamique. Quelles sont les modifications possible ?
+La mise en œuvre de serveurs DHCP avec des plages cohérentes permettra de faire que toutes les machines puissent communiquer entre elles
+
+## Q.3.11 
+C'est 10.10.4.1 qui initie,c'est donc PC1
+
 
