@@ -130,9 +130,9 @@ Le réseau de PC5 est inclus dans celui de PC1, il y aura un problème si PC5 en
 les PC 1,3 et 4 pourront communiquer ensemble. Pour le 5 j'ai un doute et je n'ai pas suffisamment de connaissance pour statuer Cf précédente question.
 
 ## Q.3.8
-Les mêmes qu'à la question orécédente pourrons communiquer avec le réseau 172.x.x.X étant donné qu'ils ont la bonne passerelle
+Les mêmes qu'à la question précédente pourront communiquer avec le réseau 172.x.x.x étant donné qu'ils ont la bonne passerelle
 
-## Q.3.9 Quel incidence y-a-t'il pour les ordinateurs PC2 et PC3 si on interverti leur ports de connexion sur le matériel A ?
+## Q.3.9 Quel incidence y-a-t'il pour les ordinateurs PC2 et PC3 si on intervertit leur ports de connexion sur le matériel A ?
 Il ne se passera rien de spécial, les switchs sont agnostiques
 
 ## Q.3.10 On souhaite mettre la configuration IP des ordinateurs en dynamique. Quelles sont les modifications possible ?
@@ -152,6 +152,8 @@ le ***reply*** est le fait de PC4 (IP 10.10.4.2/16, MAC 00:50:79:66:68:03)
 Je ne me souviens plus, mais il s'agit d'une annonce. Cela permet à PC4 de se faire connaitre de PC1
 
 ## Q.3.15 Quels ont été les rôles des matériels A et B dans cette communication ?
-A transmet les requêtes de PC1 vers PC4 et les réponse de PC4 à PC1 sans les altérer. B ne joue aucun rôle dans cet échange.
+A transmet les requêtes de PC1 vers PC4 et les réponse de PC4 à PC1 sans les altérer. B ne joue aucun rôle dans cet échange, juste le routeur B ne répond pas à la sollicitation.
 
 # Q.3.16 Dans cette trame, qui initialise la communication ? 
+C'est 10.10.80.3 qui initie. Son adresse MAC n'est pas citée dans l'énoncé mais 00:50:79:66:68:02 qui ne désigne aucune interface citée dans l'énoncé . L'équipement et sur le réseau IP de PC1, PC3 et PC4
+
