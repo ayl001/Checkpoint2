@@ -26,8 +26,8 @@ J'ai activé le DHCP sur le client. Pas de remarque particulière à faire Aucun
 clic paramètres> réseau et internet > (ethernet) > propriétés > (paramètres IP)> modifier (c'est une méthode différente de 
 la précédente. Je me renseignerai là-desssus). Le client ne reçoit pas la première adresse du serveur. C'est parce qu'il y 
 a une plage d'exclusion (voir capture).
-[zones d'exclusion](DHCP_serv_exclus.png)
-[IP client](IP_CLI.png)
+![zones d'exclusion](DHCP_serv_exclus.png)
+![IP client](IP_CLI.png)
 
 
 ## Q.1.4 Est-ce que ce client peut avoir l'adresse IP 172.16.10.15 en DHCP ?
