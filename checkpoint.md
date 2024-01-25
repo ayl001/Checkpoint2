@@ -8,7 +8,7 @@ Ensuite on peut vérifier la nécessité et l'existence d'une passerelle. Les de
 physique, il convient de les configurer sur le même LAN, ainsi de changer l'adresse IP du client et peut-être le masque. 
 Ce serait une mauvaise idée de changer les paramètres du serveur. On travaille donc sur la machine cliente. En pratique :
 Démarrer > Paramètres > Réseau et Internet > Ethernet > Propriétés > Procole Intenet Version 4 (TCP/IP version 4) > Propriétés
-et là on change l'adresse erronée par une acceptable. J'ai choisi 172.16.10.50 : je peux pinger le serveur depuis le client, et le client depuis le serveur (voir captures d'écran).
+et là on change l'adresse erronée par une acceptable. J'ai choisi 172.16.10.50 : je peux pinger le serveur depuis le client, et le client depuis le serveur (voir captures d'écran). 
 ![client -> serveur](ping.png) 
 ![serveur -> client](gnip.png)
 
