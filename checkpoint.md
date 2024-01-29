@@ -112,7 +112,7 @@ D'après son symbole et sa position dans le réseau, il s'agit d'un routeur il s
 Il s'agit des interfaces du routeur: f0/0 signifie qu'il s'agit de la première (on compte depuis zéro) interface en fast (le f) ethernet, g1/0 signifie qu'il s'agit de la 2ème interface en gigabit celle-ci (le g). Pour optimiser la connexion le g1/0 est relée à un autre routeur et le f0/0 à un switch (et lui même à des équipements terminaux)
 
 ## Q.3.4 Pour l'ordinateur PC2, que représente /16 dans son adresse IP ?
-/16 représente le réseau, sa taille etc. en fait la taille est 2^16 soit 65536, soit effectivment la possibilité d'adresser 65534 adesse (on ôte l'adresse du réseau et son adresse de diffusion.
+/16 représente le réseau, sa taille ie. 32-16=16https://github.com/ayl001/Checkpoint2/blob/main/checkpoint.md etc. en fait la taille est 2^16 soit 65536, soit effectivment la possibilité d'adresser 65534 adesse (on ôte l'adresse du réseau et son adresse de diffusion.
 
 ## Q.3.5 Pour ce même ordinateur, que représente l'adresse 10.10.255.254 ?
 Il s'agit de l'adresse de sa passerelle par défaut
